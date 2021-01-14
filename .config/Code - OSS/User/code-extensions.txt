@@ -1,0 +1,10 @@
+aaron-bond.better-comments
+arcticicestudio.nord-visual-studio-code
+CoenraadS.bracket-pair-colorizer
+golang.go
+mblode.pretty-formatter
+ms-python.python
+PKief.material-icon-theme
+redhat.java
+ritwickdey.LiveServer
+sainnhe.gruvbox-material

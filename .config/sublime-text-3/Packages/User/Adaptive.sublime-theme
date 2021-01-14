@@ -1,0 +1,13 @@
+[
+	{
+		"class": "sidebar_label",
+		"font.size": 14,
+		"font.face": "Ubuntu Mono",
+	},
+
+	{
+		"class": "tab_label",
+		"font.face": "Ubuntu Mono",
+		"font.size": 13,
+	}
+]
