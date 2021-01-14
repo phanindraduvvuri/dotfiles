@@ -19,6 +19,12 @@ lxsession &
 numlockx on
 locker &
 
+# hide mouse when not in use
+unclutter &
+
+# handles cursor problem
+xsetroot -cursor_name left_ptr &
+
 
 ###############################
 # monitor and workspace setup #

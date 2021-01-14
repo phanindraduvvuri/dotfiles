@@ -186,6 +186,7 @@ set encoding=utf-8
 
 " set filetypes for unrecognized files
 autocmd BufNewFile,BufRead *.rasi set filetype=rasi
+autocmd BufNewFile,BufRead *.conf set filetype=config
 
 "-----------------------------
 "-----------aliases-----------
