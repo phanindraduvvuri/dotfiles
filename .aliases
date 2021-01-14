@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# directory and file listings
+alias ls="exa --group-directories-first --color=always"
+alias l="exa --long --group-directories-first --color=always"
+alias ll="exa --long --all --group-directories-first --color=always"
+alias la="exa --all --group-directories-first --color=always"
+alias lsd="exa --only-dirs --group-directories-first --color=always"
+
+# Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+alias g="git"
+alias euler="cd ~/Projects/ProjectEuler"
+alias open=xdg-open
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+alias pac="sudo pacman "
+alias rw=setrandwall
+alias weather='curl wttr.in/hyderabad'
+alias py=python
+alias mv='mv -i'
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Get week number
+alias week='date +%V'
+
+# git Shortcuts
+alias gs="git status"
+alias gl="git log"
