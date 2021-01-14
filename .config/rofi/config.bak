@@ -1,0 +1,8 @@
+/*Dracula theme based on the Purple official rofi theme*/
+
+configuration {
+    modi: "window,run,ssh,drun,file-browser";
+    theme: "dracula";
+    prompt: "drun";
+}
+
