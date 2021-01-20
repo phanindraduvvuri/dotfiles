@@ -18,6 +18,8 @@ alias lsd="exa --only-dirs --group-directories-first --color=always"
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
+alias doc="cd ~/Documents"
+alias pic="cd ~/Pictures/"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
@@ -30,8 +32,8 @@ alias pac="sudo pacman "
 alias rw=setrandwall
 alias weather='curl wttr.in/hyderabad'
 alias py=python
-alias mv='mv -i'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias update_mirrors='sudo pacman-mirrors -c all && sudo pacman-mirrors -f && sudo pacman -Syyu'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '

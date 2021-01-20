@@ -18,7 +18,7 @@
 		"a.out"
 	],
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium) NDC.sublime-color-scheme",
+	"color_scheme": "Packages/Nord/Nord.sublime-color-scheme",
 	"drag_text": false,
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,

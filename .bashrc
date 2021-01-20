@@ -143,3 +143,7 @@ export VISUAL=/usr/bin/nvim
 
 # Initialize starship prompt
 eval "$(starship init bash)"
+
+if [[ -f ~/.aliases ]]; then
+    source ~/.aliases
+fi

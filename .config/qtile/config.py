@@ -34,8 +34,6 @@ from libqtile.config import Click, Drag, Group, Key, Screen, Match
 from libqtile.lazy import lazy
 # from libqtile.utils import guess_terminal
 
-from powerline.bindings.qtile.widget import PowerlineTextBox
-
 mod = "mod4"
 alt = "mod1"
 terminal = "termite"
@@ -152,10 +150,10 @@ keys = [
         lazy.spawn(terminal),
         desc="Launch terminal"),
     Key([mod], "x",
-        lazy.spawn("lock"),
+        lazy.spawn("sh -c '/home/phanindra/.local/bin/lock'"),
         desc="Lock screen"),
     Key([mod], "r",
-        lazy.spawn("rofi -show run"),
+        lazy.spawn("dmenu_run -h 32"),
         desc="Launch run prompt"),
     Key([mod, "shift"], 'x',
         lazy.spawn("xkill"),
@@ -165,7 +163,7 @@ keys = [
         lazy.window.kill(),
         desc="Kill focused window"),
     Key([mod], "space",
-        lazy.spawn("rofi -show drun"),
+        lazy.spawn("dmenu_run -h 32"),
         desc="Launch application launcher"),
 
     ####################
@@ -200,7 +198,7 @@ keys = [
         lazy.spawn("/home/phanindra/xmenu/xmenu.sh"),
         desc="launch menu"),
     Key([alt, "control"], "c",
-        lazy.spawn('/home/phanindra/.config/qtile/scripts/edit-configs.sh'),
+        lazy.spawn('sh -c "/home/phanindra/.config/qtile/scripts/edit-configs.sh"'),
         desc="list config file to edit in rofi"),
 ]
 
@@ -216,6 +214,7 @@ groups_setup = (
         'label': '',
         }),
     ('4', {
+        'layout': 'max',
         'matches': [Match(wm_class=["zoom"])],
         'label': '',
         }),
@@ -256,8 +255,8 @@ for label, config in groups_setup:
     ])
 
 layout_config = {
-        "border_focus": "#d3869b",
-        "border_normal": "#32302f",
+        "border_focus": "#a3be8c",
+        "border_normal": "#2e3440",
         "border_width": 2,
         "margin": 4,
             }
@@ -280,16 +279,17 @@ layouts = [
 ]
 
 colors = {
-        'bg': ['#282828', '#292828'],
-        'bg-alt': ['#32302f', '#32302f'],
-        'fg': ['#ebdbb2', '#ebdbb2'],
-        'fg-alt': ['#a89984', '#a89984'],
-        'red': ['#cc241d', '#cc241d'],
-        'green': ['#8ec07c', '#8ebe8c'],
-        'yellow': ['#d79921', '#d79921'],
-        'blue': ['#83a598', '#83a598'],
-        'purple': ['#d3869b', '#d3869b'],
-        'cyan': ['#458588', '#458588'],
+        'bg': ['#2e3440', '#2e3440'],
+        'bg-alt': ['#3b4252', '#3b4252'],
+        'fg': ['#eceff4', '#eceff4'],
+        'fg-alt': ['#4c566a', '#4c566a'],
+        'red': ['#bf616a', '#bf616a'],
+        'green': ['#a3be8c', '#a3be8c'],
+        'yellow': ['#ebcb8b', '#ebcb8b'],
+        'blue': ['#5e81ac', '#5e81ac'],
+        'purple': ['#b48ead', '#b48ead'],
+        'cyan': ['#88c0c0', '#88c0c0'],
+        'orange': ['#d08770', '#d08770'],
         }
 
 
@@ -297,7 +297,7 @@ widget_defaults = dict(
     background=colors['bg'],
     foreground=colors['fg'],
     font='mononoki',
-    fontsize=12,
+    fontsize=13,
     padding=5,
 )
 extension_defaults = widget_defaults.copy()
@@ -308,11 +308,6 @@ screens = [
             [
                 widget.Spacer(
                     length=4,
-                    ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/python.png",
-                    mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn('/home/phanindra/xmenu/xmenu.sh')},
-                    scale=0.75,
                     ),
                 widget.GroupBox(
                     inactive=colors.get('fg-alt'),
@@ -325,10 +320,6 @@ screens = [
                     urgent_alert_method="line",
                     ),
                 widget.WindowName(),
-                widget.Image(
-                    filename="~/.config/qtile/icons/bg_yel.png",
-                    padding=0,
-                        ),
                 widget.TextBox(
                     text='',
                     fontsize=23,
@@ -358,55 +349,59 @@ screens = [
                     foreground=colors.get('bg'),
                     ),
                 widget.ThermalSensor(
-                    threshold=75,
+                    threshold=80,
                     background=colors.get('yellow'),
                     foreground=colors.get('bg'),
                     ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/yel_bg.png",
-                        ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/bg_pur.png",
-                    padding=0,
-                        ),
+                widget.Spacer(
+                    length=4,
+                    ),
+                widget.TextBox(
+                    text='',
+                    background=colors.get('orange'),
+                    foreground=colors.get('bg'),
+                    padding=5,
+                    fontsize=15,
+                    ),
+                widget.Net(
+                    format='{down} ↓↑ {up}',
+                    background=colors.get('orange'),
+                    foreground=colors.get('bg'),
+                    padding=5,
+                    ),
+                widget.Spacer(
+                    length=4,
+                    ),
                 widget.TextBox(
                     text='',
                     padding=5,
                     background=colors.get('purple'),
                     foreground=colors.get('bg'),
-                    fontsize=20,
+                    fontsize=24,
                     ),
                 widget.Volume(
                     background=colors.get('purple'),
                     foreground=colors.get('bg'),
-                    padding=0,
+                    padding=5,
                     ),
                 widget.Spacer(
-                    length=8,
-                    background=colors.get('purple'),
+                    length=4,
+                    ),
+                widget.TextBox(
+                    text='',
+                    padding=5,
+                    background=colors.get('cyan'),
                     foreground=colors.get('bg'),
-                        ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/pur_bg.png",
-                    padding=0,
-                        ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/bg_blue.png",
-                    padding=0,
-                        ),
+                    fontsize=25,
+                    ),
                 widget.Clock(
                     format='%a, %b %-d [ %H:%M ]',
                     background=colors.get('cyan'),
                     foreground=colors.get('bg'),
                         ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/blue_bg.png",
-                    padding=0,
-                        ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/bg_red.png",
-                    padding=0,
-                        ),
+                widget.Spacer(
+                    length=4,
+                    ),
                 widget.CurrentLayoutIcon(
                     custom_icon_paths=["/home/phanindra/.config/qtile/icons/gruvbox/"],
                     background=colors.get('red'),
@@ -416,15 +411,12 @@ screens = [
                     background=colors.get('red'),
                     foreground=colors.get('bg'),
                     ),
-                widget.Image(
-                    filename="~/.config/qtile/icons/red_bg.png",
-                        ),
                 widget.Systray(
                     icon_size=23,
                     background=colors.get('bg')
                     ),
             ],
-            28, # bar height
+            32, # bar height
         ),
     ),
 ]
@@ -469,7 +461,9 @@ floating_layout = layout.Floating(**layout_config, float_rules=[
     {'wmclass': 'Mousepad'},
     {'wmclass': 'Gnome-calculator'},
     {'wmclass': 'Engrampa'},
-    {'wmclass': 'balena-etcher-electron'}
+    {'wmclass': 'Pinentry-gtk-2'},
+    {'wmclass': 'balena-etcher-electron'},
+    {'wmclass': 'Lxpolkit'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
@@ -479,6 +473,10 @@ focus_on_window_activation = "smart"
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([home])
+
+@hook.subscribe.startup_complete
+def screen_res():
+    subprocess.call(["xrandr --output VGA1 --scale 1.1x1.1"])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

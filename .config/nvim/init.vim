@@ -38,6 +38,11 @@ Plug 'jiangmiao/auto-pairs'
 " startup screen for vim
 Plug 'mhinz/vim-startify'
 
+" for markdown
+Plug 'plasticboy/vim-markdown'
+
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
 
 "-----------------------------------
@@ -187,6 +192,7 @@ set encoding=utf-8
 " set filetypes for unrecognized files
 autocmd BufNewFile,BufRead *.rasi set filetype=rasi
 autocmd BufNewFile,BufRead *.conf set filetype=config
+autocmd BufNewFile,BufRead *.ASM set filetype=masm
 
 "-----------------------------
 "-----------aliases-----------

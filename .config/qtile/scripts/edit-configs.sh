@@ -1,6 +1,7 @@
 declare options=("aliases
 bash
 bspwm
+dmenu
 dunst
 herbstluftwm
 neofetch
@@ -16,10 +17,13 @@ starship
 vim
 xinitrc
 Xreasources
+zathura
 zsh"
 )
 
-choice=$(echo -e "${options[@]}" | rofi -dmenu -p "Edit config files: ")
+# choice=$(echo -e "${options[@]}" | rofi -dmenu -p "Edit config files")
+# choice=$(echo -e "${options[@]}" | dmenu -g 5 -h 32 -l 3 -p "edit configs:" -fn "mononoki Nerd Font")
+choice=$(echo -e "${options[@]}" | dmenu -p "edit configs:" -h 32)
 
 case "$choice" in
     aliases)
@@ -33,6 +37,9 @@ case "$choice" in
         ;;
     dunst)
         choice="/home/phanindra/.config/dunst/dunstrc"
+        ;;
+    dmenu)
+        choice="/home/phanindra/.config/dmenu/config.def.h"
         ;;
     herbstluftwm)
         choice="/home/phanindra/.config/herbstluftwm/autostart"
@@ -78,6 +85,9 @@ case "$choice" in
         ;;
     zsh)
         choice="/home/phanindra/.zshrc"
+        ;;
+    zathura)
+        choice="/home/phanindra/.config/zathura/zathurarc"
         ;;
     *)
         exit 0
