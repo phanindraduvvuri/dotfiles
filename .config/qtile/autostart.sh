@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # restore previous wallpaper
-nitrogen --restore &
+# nitrogen --restore &
+nitrogen --set-zoom-fill --random &
+
 
 # start compositor (for transparency and other effects)
 picom -f &
@@ -19,7 +21,7 @@ launchxfceclipboard &
 gen_menufile > /home/phanindra/xmenu/menu &
 
 # for polkit
-lxsession &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # turn on numlock at startup
 numlockx on

@@ -1,5 +1,6 @@
 # don't print a new line at the start of the prompt
-# add_newline = false
+add_newline = true
+
 
 # Make prompt a single line instead of two lines
 [line_break]
@@ -7,10 +8,13 @@ disabled = false
 
 
 [character]
-success_symbol = "[➜](bold green) "
+# success_symbol = "[➜](bold green) "
 # success_symbol = "[❯](bold green) "
-# success_symbol = "[](bold green) "
-error_symbol = "[✗](bold red) "
+# error_symbol = "[✗](bold red) "
+
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vicmd_symbol = "[\\$](bold purple)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]

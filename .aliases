@@ -34,6 +34,10 @@ alias weather='curl wttr.in/hyderabad'
 alias py=python
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias update_mirrors='sudo pacman-mirrors -c all && sudo pacman-mirrors -f && sudo pacman -Syyu'
+alias tobash="chsh -s $(which bash)"
+alias tozsh="chsh -s $(which zsh)"
+alias tofish="chsh -s $(which fish)"
+
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '

@@ -43,6 +43,8 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'dhruvasagar/vim-table-mode'
 
+Plug 'dag/vim-fish'
+
 call plug#end()
 
 "-----------------------------------

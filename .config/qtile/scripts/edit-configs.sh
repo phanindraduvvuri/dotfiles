@@ -23,7 +23,7 @@ zsh"
 
 # choice=$(echo -e "${options[@]}" | rofi -dmenu -p "Edit config files")
 # choice=$(echo -e "${options[@]}" | dmenu -g 5 -h 32 -l 3 -p "edit configs:" -fn "mononoki Nerd Font")
-choice=$(echo -e "${options[@]}" | dmenu -p "edit configs:" -h 32)
+choice=$(echo -e "${options[@]}" | rofi -dmenu -p "edit configs" )
 
 case "$choice" in
     aliases)

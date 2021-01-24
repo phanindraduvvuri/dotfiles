@@ -15,7 +15,8 @@ launchpolybar &
 launchxfceclipboard
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 nitrogen --restore &
-lxsession &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# lxsession &
 numlockx on
 locker &
 
@@ -30,7 +31,7 @@ xsetroot -cursor_name left_ptr &
 # monitor and workspace setup #
 ###############################
 
-bspc monitor VGA1 -d 1 2 3 4 5 6 7
+bspc monitor VGA1 -d 1 2 3 4 5 6 7 8
 
 #######################
 # bspwm configuration #
@@ -76,7 +77,7 @@ bspc rule -a Audacious state=floating follow=off
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a zoom desktop='^4' state=floating follow=on
+bspc rule -a zoom desktop='^8' state=floating follow=on
 bspc rule -a vlc desktop='^6' follow=on
 bspc rule -a Viewnior state=floating follow=on
 bspc rule -a Transmission-gtk state=floating follow=on desktop='^7'
