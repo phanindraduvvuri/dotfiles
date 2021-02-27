@@ -39,8 +39,8 @@ mod = "mod4"
 alt = "mod1"
 terminal = "termite"
 browser = "brave"
-filebrowser = "thunar"
-mail = "geary"
+filebrowser = "nautilus"
+mail = "mailspring"
 launcher_cmd = "rofi -theme ~/.config/rofi/config.rasi"
 
 keys = [
@@ -163,6 +163,9 @@ keys = [
    Key([mod, "shift"], 'x',
        lazy.spawn("xkill"),
        desc="Kill the selected window"),
+   Key([mod, "shift"], 'space',
+       lazy.spawn("killall -SIGUSR1 jgmenu"),
+       desc="Launch application menu"),
    # Close the focused window
    Key([mod], "q",
        lazy.window.kill(),
@@ -199,9 +202,6 @@ keys = [
    Key([alt, "control"], "n",
        lazy.spawn("nitrogen"),
        desc="Launch nitrogen"),
-   Key([alt, "control"], "m",
-       lazy.spawn("/home/phanindra/xmenu/xmenu.sh"),
-       desc="launch menu"),
    Key([alt, "control"], "c",
        lazy.spawn('sh -c "/home/phanindra/.config/qtile/scripts/edit-configs.sh"'),
        desc="list config file to edit in rofi"),
@@ -212,6 +212,7 @@ keys = [
 
 groups_setup = (
     ('1', {
+        'matches': [Match(wm_class=["Code"])],
         'label': '',
         }),
     ('2', {
@@ -266,7 +267,7 @@ for label, config in groups_setup:
     ])
 
 layout_config = {
-        "border_focus": "#bf616a",
+        "border_focus": "#eceff4",
         "border_normal": "#2e3440",
         "border_width": 2,
         "margin": 4,
@@ -319,95 +320,104 @@ screens = [
             [
                 widget.Spacer(
                     length=4, ),
+                widget.TextBox(
+                    text='',
+                    fontsize=27,
+                    mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn('killall -SIGUSR1 jgmenu')},
+                    ),
                 widget.GroupBox(
                     inactive=colors.get('fg-alt'),
                     highlight_method='line',
                     this_current_screen_border=colors.get('blue'),
                     highlight_color=colors.get('bg-alt'),
-                    fontsize=26,
+                    fontsize=22,
                     urgent_border=colors.get("red"),
                     urgent_text=colors.get("red"),
                     urgent_alert_method="line", ),
                 widget.WindowName(),
                 widget.TextBox(
-                    text='',
-                    fontsize=23,
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'), ),
-                widget.Memory(
-                    format="{MemUsed}M",
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'), ),
-                widget.TextBox(
-                    text='',
-                    fontsize=20,
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'), ),
-                widget.CPU(
-                    format="{load_percent}%",
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'),),
-                widget.TextBox(
-                    text='',
-                    fontsize=20,
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'), ),
-                widget.ThermalSensor(
-                    threshold=80,
-                    background=colors.get('yellow'),
-                    foreground=colors.get('bg'), ),
-                widget.Spacer(
-                    length=4, ),
-                widget.TextBox(
                     text='',
-                    background=colors.get('orange'),
-                    foreground=colors.get('bg'),
+                    foreground=colors.get('orange'),
+                    background=colors.get('bg'),
                     padding=5,
                     fontsize=15, ),
                 widget.Net(
                     format='{down} ↓↑ {up}',
-                    background=colors.get('orange'),
-                    foreground=colors.get('bg'),
+                    foreground=colors.get('orange'),
+                    background=colors.get('bg'),
                     padding=5, ),
-                widget.Spacer(
-                    length=4, ),
+                widget.Sep(
+                    linewidth=1,
+                    size_percent=60, ),
+                widget.TextBox(
+                    text='',
+                    fontsize=23,
+                    foreground=colors.get('yellow'),
+                    background=colors.get('bg'), ),
+                widget.Memory(
+                    format="{MemUsed}M",
+                    foreground=colors.get('yellow'),
+                    background=colors.get('bg'), ),
+                widget.TextBox(
+                    text='',
+                    fontsize=20,
+                    foreground=colors.get('green'),
+                    background=colors.get('bg'), ),
+                widget.CPU(
+                    format="{load_percent}%",
+                    foreground=colors.get('green'),
+                    background=colors.get('bg'), ),
+                widget.TextBox(
+                    text='',
+                    fontsize=20,
+                    foreground=colors.get('blue'),
+                    background=colors.get('bg'), ),
+                widget.ThermalSensor(
+                    threshold=90,
+                    foreground=colors.get('blue'),
+                    background=colors.get('bg'), ),
+                widget.Sep(
+                    linewidth=1,
+                    size_percent=60, ),
                 widget.TextBox(
                     text='',
                     padding=5,
-                    background=colors.get('purple'),
-                    foreground=colors.get('bg'),
+                    foreground=colors.get('purple'),
+                    background=colors.get('bg'),
                     fontsize=24, ),
                 widget.Volume(
-                    background=colors.get('purple'),
-                    foreground=colors.get('bg'),
+                    foreground=colors.get('purple'),
+                    background=colors.get('bg'),
                     padding=5, ),
-                widget.Spacer(
-                    length=4, ),
+                widget.Sep(
+                    linewidth=1,
+                    size_percent=60, ),
                 widget.TextBox(
                     text='',
                     padding=5,
-                    background=colors.get('cyan'),
-                    foreground=colors.get('bg'),
+                    foreground=colors.get('cyan'),
+                    background=colors.get('bg'),
                     fontsize=25, ),
                 widget.Clock(
                     format='%a, %b %-d [ %H:%M ]',
-                    background=colors.get('cyan'),
-                    foreground=colors.get('bg'), ),
-                widget.Spacer(
-                    length=4, ),
-                widget.CurrentLayoutIcon(
-                    custom_icon_paths=["/home/phanindra/.config/qtile/icons/gruvbox/"],
-                    background=colors.get('red'),
-                    foreground=colors.get('fg-alt'),
-                    scale=0.65, ),
+                    foreground=colors.get('cyan'),
+                    background=colors.get('bg'), ),
+                widget.Sep(
+                    linewidth=1,
+                    size_percent=60, ),
+                # widget.CurrentLayoutIcon(
+                #     custom_icon_paths=["/home/phanindra/.config/qtile/icons/gruvbox/"],
+                #     foreground=colors.get('red'),
+                #     background=colors.get('fg-alt'),
+                #     scale=0.65, ),
                 widget.CurrentLayout(
-                    background=colors.get('red'),
-                    foreground=colors.get('bg'), ),
+                    foreground=colors.get('red'),
+                    background=colors.get('bg'), ),
                 widget.Systray(
                     icon_size=23,
                     background=colors.get('bg'), ),
             ],
-            32,  # bar height
+            24,  # bar height
         ),
     ),
 ]
@@ -455,6 +465,7 @@ floating_layout = layout.Floating(**layout_config, float_rules=[
     {'wmclass': 'Pinentry-gtk-2'},
     {'wmclass': 'balena-etcher-electron'},
     {'wmclass': 'Lxpolkit'},
+    {'wmclass': 'dosbox'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

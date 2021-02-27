@@ -2,12 +2,12 @@
 	{
 		"class": "sidebar_label",
 		"font.size": 14,
-		"font.face": "Ubuntu Mono",
+		"font.face": "Source Code Pro",
 	},
 
 	{
 		"class": "tab_label",
-		"font.face": "Ubuntu Mono",
-		"font.size": 13,
+		"font.face": "Source Code Pro",
+		"font.size": 11,
 	}
 ]

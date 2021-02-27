@@ -15,8 +15,7 @@
 	"Print to Stdout": {
 		"prefix": "println",
 		"body": [
-			"System.out.println($1);",
-			"$0"
+			"System.out.println($1);$0"
 		],
 		"description": "Print output to screen with a trailing new line"
 	}

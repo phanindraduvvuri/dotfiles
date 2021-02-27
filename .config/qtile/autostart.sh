@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # restore previous wallpaper
-# nitrogen --restore &
-nitrogen --set-zoom-fill --random &
+nitrogen --restore &
 
 
 # start compositor (for transparency and other effects)
@@ -17,10 +16,8 @@ launchxfceclipboard &
 # start notification daemon
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-# generate new application menu file at every login
-gen_menufile > /home/phanindra/xmenu/menu &
-
 # for polkit
+# lxsession &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # turn on numlock at startup
@@ -28,3 +25,16 @@ numlockx on
 
 # automatic sleep after 10 min
 locker &
+
+#hide mouse when not in use
+unclutter &
+
+# pamac tray icon
+pamac-tray &
+
+# start mailspring mailclient
+mailspring --background &
+
+# start jgmenu in background
+jgmenu_run &
+xcape -e 'Super_L=Super_L|Shift_L|space'

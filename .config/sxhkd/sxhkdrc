@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run
+	rofi -show run
 
 # web browser
 super + b
@@ -18,9 +18,8 @@ super + b
 super + e
 	thunar &
 
-# run prompt
-super + r
-	rofi -show run
+super + a
+	rofi -show drun
 
 # lock screen
 super + x
@@ -43,9 +42,8 @@ ctrl + alt + Print
 super + shift + x
 	xkill
 
-# toggle notification center
-super + n
-	kill -s USR1 $(pidof deadd-notification-center)
+super + shift + @space
+	killall -SIGUSR1 jgmenu
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -7,16 +7,12 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom -f &
 
-# generate new application menu file at every login
-gen_menufile > /home/phanindra/xmenu/menu
-
 nm-applet &
 launchpolybar &
 launchxfceclipboard
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 nitrogen --restore &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# lxsession &
 numlockx on
 locker &
 
@@ -25,6 +21,9 @@ unclutter &
 
 # handles cursor problem
 xsetroot -cursor_name left_ptr &
+
+# start jgmenu in background
+jgmenu --hide-on-startup &
 
 
 ###############################

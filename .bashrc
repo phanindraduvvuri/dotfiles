@@ -1,3 +1,4 @@
+
 #
 # ~/.bashrc
 #
@@ -149,3 +150,8 @@ colorscript random
 if [[ -f ~/.aliases ]]; then
     source ~/.aliases
 fi
+
+source /home/phanindra/.config/broot/launcher/bash/br
+
+# vi mode
+set -o vi

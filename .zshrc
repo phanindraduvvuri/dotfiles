@@ -110,6 +110,9 @@ source ~/.custom_commands
 export EDITOR='nvim'
 export TERMINAL=termite
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -128,3 +131,5 @@ if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 
+
+source /home/phanindra/.config/broot/launcher/bash/br

@@ -5,6 +5,10 @@
  * AUTHOR: Derek Taylor (DT)
  */
 
+configuration {
+    modi:                        "window,run,ssh,drun,file-browser";
+}
+
 * {
     background-color:            #282c34;
     border-color:                #282c34;
@@ -19,7 +23,6 @@
     selected-normal-background:  #bf616a;
     selected-normal-foreground:  #eceff4;
     spacing:                     3;
-    modi:                        "window,run,ssh,drun";
 }
 #window {
     border:  1;

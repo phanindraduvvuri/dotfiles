@@ -37,6 +37,7 @@ alias update_mirrors='sudo pacman-mirrors -c all && sudo pacman-mirrors -f && su
 alias tobash="chsh -s $(which bash)"
 alias tozsh="chsh -s $(which zsh)"
 alias tofish="chsh -s $(which fish)"
+alias bat=cat
 
 
 # Enable aliases to be sudo’ed
