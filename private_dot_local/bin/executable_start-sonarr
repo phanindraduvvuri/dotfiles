@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+docker run --privileged -d -p 8989:8989 --net sonarr \
+        -v /'Plex Media'/config/sonarr:/config \
+        -v /'Plex Media'/download/:/downloads \
+        -v /'Plex Media'/tv:/tv \
+        -v /etc/localtime:/etc/localtime:ro \
+        -e PUID=1000 \
+        -e PGID=1001 \
+        --restart unless-stopped \
+        --name sonarr \
+        linuxserver/sonarr

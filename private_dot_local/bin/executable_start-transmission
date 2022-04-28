@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+
+docker run -d \
+        --name=transmission \
+        -e PUID=1000 \
+        -e PGID=1001 \
+        -e TZ=Asia/Kolkata \
+        -p 9091:9091 \
+        -p 51413:51413 \
+        -p 51413:51413/udp \
+        -v /'Plex Media'/config/trasmission:/config \
+        -v /'Plex Media'/download:/downloads \
+        -v /'Plex Media'/download/watch:/watch \
+        --restart unless-stopped \
+        --privileged \
+        lscr.io/linuxserver/transmission
+
+
+docker network connect sonarr transmission

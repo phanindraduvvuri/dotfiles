@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+docker run --privileged -d --name radarr \
+        -e PUID=1000 \
+        -e PGID=1001 \
+        -e TZ=Asia/Kolkata \
+        -p 7878:7878 \
+        -v /'Plex Media'/config/radarr:/config \
+        -v /'Plex Media'/movies:/movies \
+        -v /'Plex Media'/download:/downloads \
+        --restart unless-stopped \
+        --net sonarr \
+        lscr.io/linuxserver/radarr
