@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = phanindra40430@gmail.com
+	name = Phanindra Duvvuri
+[credential]
+	helper = cache
